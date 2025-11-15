@@ -1,0 +1,799 @@
+/* style.css */
+
+/* --- 0. Umum untuk Scroll Behavior --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- 1. RESET & BASE STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 40px; /* Padding di sekitar container utama */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. MAIN CONTAINER (White Card Effect) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255); /* Diperbaiki dari typo */
+    border-radius: 20px;
+    padding: 30px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk dark mode */
+}
+
+/* --- 3. HEADER & NAVIGATION --- */
+.header {
+    display: flex;
+    justify-content: space-between; /* Untuk menempatkan logo, nav, dan actions di ujung */
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Garis tipis di bawah header */
+    transition: border-color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.logo i {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.navbar a {
+    margin-left: 30px;
+    font-size: 16px;
+    color: #666;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.navbar a.active,
+.navbar a:hover {
+    color: #007bff; /* Warna biru sebagai warna primer */
+    border-bottom: 2px solid #007bff;
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-image-container {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    flex-grow: 1;
+}
+
+.hero-text h1 {
+    font-size: 44px;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+/* --- 5. CALL TO ACTION BUTTONS (CTA) & PDF BUTTONS --- */
+.cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling untuk label tombol yang sekarang ada di dalam tautan kartu */
+.pdf-link-card .pdf-button-label {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.pdf-link-card:hover .pdf-button-label {
+    background-color: #50b9f7;
+}
+
+.email-button {
+    background: linear-gradient(to right, #D84315 0%, #D84315 50%, #FFFFFF 50%, #FFFFFF 100%);
+    color: #333;
+    border: 1px solid #D84315;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.email-button:hover {
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #D84315 50%, #D84315 100%);
+    color: #D84315;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Gaya untuk tombol WhatsApp */
+.whatsapp-button {
+    background-color: #25D366;
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851;
+}
+
+/* Gaya untuk tombol Instagram */
+.instagram-button {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+    border: none;
+}
+
+.instagram-button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.social-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white; /* Warna ikon default */
+    background-color: #555; /* Default background jika tidak di-override */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon-button .button-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    opacity: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.social-icon-button:hover {
+    width: 140px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon-button:hover .button-label {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.social-icon-button:hover i {
+    opacity: 0;
+}
+
+/* Dark mode umum untuk ikon sosial */
+body.dark-theme .social-icon-button {
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+body.dark-theme .social-icon-button:hover {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+body.dark-theme .social-icon-button .button-label {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.email-icon-button {
+    background-color: #EA4335;
+}
+.email-icon-button:hover {
+    background-color: #c5382d;
+}
+
+.whatsapp-icon-button {
+    background-color: #25D366;
+}
+.whatsapp-icon-button:hover {
+    background-color: #1DA851;
+}
+
+.instagram-icon-button {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.instagram-icon-button:hover {
+    filter: brightness(1.1);
+}
+
+.github-icon-button {
+    background-color: #333;
+}
+body.dark-theme .github-icon-button {
+    background-color: #eee;
+    color: #333;
+}
+.github-icon-button:hover {
+    background-color: #555;
+}
+body.dark-theme .github-icon-button:hover {
+    background-color: #a19d9dbe;
+    color: #333;
+}
+
+
+/* ... (Gaya Dark Mode Umum untuk .social-icon-button lainnya di sini) ... */
+
+/* --- 6. PROJECTS SECTION --- */
+.projects {
+    padding: 40px 0;
+}
+
+.projects h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #333;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s ease; /* Transisi untuk dark mode */
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.project-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.project-tags {
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+/* --- 7. ABOUT SNAPSHOT SECTION --- */
+.about-snapshot {
+    padding: 40px 0; /* Tetap pertahankan padding luar section ini */
+    margin-top: 30px; /* Jarak dari section di atasnya */
+}
+
+.about-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    margin-bottom: 50px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.about-card h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.about-card p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #555;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.read-more {
+    color: #007bff;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+/* --- 8. CONTACT SECTION --- */
+.contact-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contact-section h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #333;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* --- 9. FOOTER --- */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: #666;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #007bff;
+}
+
+body.dark-theme .footer-nav a {
+    color: #b0b0b0;
+}
+body.dark-theme .footer-nav a:hover {
+    color: #8ab4f8;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #999;
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.social-links a {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #999;
+    transition: color 0.3s ease; /* Transisi untuk dark mode */
+}
+
+.social-links a:hover {
+    color: #007bff;
+}
+
+/* ==================================== */
+/* --- 10. FITUR INTERAKTIF & DARK MODE --- */
+/* ==================================== */
+
+/* --- Umum untuk Scroll Behavior --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Header Actions (Dark Mode Toggle & Hamburger) --- */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-toggle,
+.hamburger-menu {
+    background: none;
+    border: none;
+    color: #666; /* Warna ikon default */
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover,
+.hamburger-menu:hover {
+    color: #007bff;
+}
+
+/* Sembunyikan hamburger di desktop */
+.hamburger-menu {
+    display: none;
+}
+
+/* --- Efek Fade-In saat Scrolling --- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Dark Mode Styles --- */
+/* DEFAULT: Light Theme */
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #333;
+}
+body.light-theme .container {
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+body.light-theme .header .logo i,
+body.light-theme .navbar a,
+body.light-theme .theme-toggle,
+body.light-theme .hamburger-menu {
+    color: #666;
+}
+body.light-theme .navbar a.active,
+body.light-theme .navbar a:hover,
+body.light-theme .theme-toggle:hover,
+body.light-theme .hamburger-menu:hover {
+    color: #007bff;
+}
+body.light-theme h1, body.light-theme h2, body.light-theme h3 {
+    color: #333;
+}
+body.light-theme p {
+    color: #666;
+}
+body.light-theme .project-card {
+    background-color: #f9f9f9;
+}
+body.light-theme .project-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+body.light-theme .about-card {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+body.light-theme .footer .social-links a {
+    color: #999;
+}
+body.light-theme .footer .social-links a:hover {
+    color: #007bff;
+}
+body.light-theme .cta-button {
+    background-color: #007bff;
+    color: white;
+}
+body.light-theme .cta-button:hover {
+    background-color: #0056b3;
+}
+body.light-theme .whatsapp-button {
+    background-color: #25D366;
+}
+body.light-theme .whatsapp-button:hover {
+    background-color: #1DA851;
+}
+body.light-theme .instagram-button {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+}
+
+
+/* DARK THEME */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+body.dark-theme .container {
+    background-color: #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+body.dark-theme .header .logo i,
+body.dark-theme .navbar a,
+body.dark-theme .theme-toggle,
+body.dark-theme .hamburger-menu {
+    color: #cccccc;
+}
+body.dark-theme .navbar a.active,
+body.dark-theme .navbar a:hover,
+body.dark-theme .theme-toggle:hover,
+body.dark-theme .hamburger-menu:hover {
+    color: #8ab4f8;
+}
+body.dark-theme h1, body.dark-theme h2, body.dark-theme h3 {
+    color: #f5f5f5;
+}
+body.dark-theme p {
+    color: #b0b0b0;
+}
+body.dark-theme .project-card {
+    background-color: #3a3a3a;
+    border: 1px solid #444;
+}
+body.dark-theme .project-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+body.dark-theme .about-card {
+    background-color: #3a3a3a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid #444;
+}
+body.dark-theme .footer .social-links a {
+    color: #b0b0b0;
+}
+body.dark-theme .footer .social-links a:hover {
+    color: #8ab4f8;
+}
+body.dark-theme .cta-button {
+    background-color: #8ab4f8;
+    color: #1a1a1a;
+}
+body.dark-theme .cta-button:hover {
+    background-color: #6c9df0;
+}
+body.dark-theme .whatsapp-button {
+    background-color: #25D366;
+    color: white;
+}
+body.dark-theme .whatsapp-button:hover {
+    background-color: #1DA851;
+}
+body.dark-theme .instagram-button {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+}
+
+
+/* ==================================== */
+/* --- 11. RESPONSIVENESS (Mobile-First Adjustment) --- */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    .container {
+        padding: 20px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-snapshot { /* Gaya untuk about-snapshot di desktop medium */
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px; /* Kurangi padding body di mobile */
+    }
+
+    .header {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    /* --- Hamburger Menu di Mobile --- */
+    .navbar {
+        display: none; /* Default disembunyikan */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Di bawah header */
+        left: 0;
+        width: 100%;
+        background-color: rgb(255, 255, 255); /* Latar belakang menu (akan diubah oleh JS untuk dark mode) */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        padding: 20px 0;
+        border-radius: 0 0 15px 15px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out, background-color 0.3s;
+    }
+
+    body.dark-theme .navbar {
+        background-color: #2a2a2a; /* Sesuaikan untuk dark mode */
+    }
+
+    .navbar.open {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .navbar a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        width: 100%;
+        margin: 0; /* Override margin desktop */
+    }
+    
+    body.dark-theme .navbar a {
+        border-bottom: 1px solid #444;
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .hamburger-menu {
+        display: block; /* Tampilkan hamburger di mobile */
+    }
+    
+    .hamburger-menu.active .fa-bars:before {
+        content: "\f00d"; /* Ubah ikon menjadi 'x' saat aktif (Font Awesome) */
+    }
+
+    body.no-scroll {
+        overflow: hidden; /* Mencegah scroll body saat menu mobile terbuka */
+    }
+    /* --- Akhir Hamburger Menu --- */
+
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero-image-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 kolom di layar kecil */
+    }
+
+    .about-snapshot {
+        max-width: 100%; /* About card mengambil lebar penuh di mobile */
+        margin: 0; /* Hapus margin auto agar tidak ada masalah */
+        padding: 20px 0; /* Sesuaikan padding agar tidak terlalu besar */
+    }
+    
+    .about-card {
+        padding: 20px; /* Kurangi padding kartu about di mobile */
+        margin-bottom: 30px; /* Kurangi margin bawah */
+    }
+
+    .about-content { /* Properti ini tidak lagi relevan karena kita memakai about-card */
+        /* max-width: 100%; */
+    }
+    
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding-bottom: 20px; /* Tambahan padding agar tidak terlalu mepet */
+    }
+    
+    .social-links {
+        margin-left: 0;
+    }
+
+    .contact-section {
+        padding: 20px 0;
+    }
+    .contact-section h3 {
+        font-size: 24px;
+    }
+    .contact-section p {
+        font-size: 16px;
+    }
+}
